@@ -9,15 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       -
-        name: Checkout
-        uses: actions/checkout@v3
-      -
-        name: Checkout alphafold3 repo
-        uses: actions/checkout@v3
-        with:
-          repository: google-deepmind/alphafold3
-          path: alphafold3
-      -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v2
       -
@@ -35,5 +26,6 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: https://github.com/google-deepmind/alphafold3.git
+          file: {context}/docker/Dockerfile
           push: true
           tags: ghcr.io/juyeongkim/alphafold3:latest
