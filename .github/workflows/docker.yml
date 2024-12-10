@@ -26,6 +26,6 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: https://github.com/google-deepmind/alphafold3.git
-          file: {context}/docker/Dockerfile
+          file: ./docker/Dockerfile
           push: true
           tags: ghcr.io/juyeongkim/alphafold3:latest
